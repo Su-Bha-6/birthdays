@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Add Google Fonts for a stylish font -->
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Birthday Song Audio -->
+    <audio id="happy-birthday-to-you-370804.mp3" src="https://pixabay.com/music/modern-classical-happy-birthday-to-you-370804/" preload="auto"></audio>
+
+    <!-- The container for the falling items animation -->
+    <div class="birthday-rain"></div>
+
+    <!-- The main birthday card with festive elements -->
+    <div class="card birthday-theme">
+        <!-- Decorative balloon graphics -->
+        <div class="balloon-corner top-left"></div>
+        <div class="balloon-corner bottom-right"></div>
+
+        <div class="heading">
+            <span class="main-title">Happy Birthday</span>
+            <span class="friend-name" style="font-family: 'Pacifico', cursive; font-size: 2rem; color: #ff7f50;">Sangita 🎈</span>   
+        </div>
+
+        <img class="main-gif" src="https://happybirthdaywishez.com/wp-content/uploads/2023/02/happy-birthday-gif-animated-images-2023.gif" alt="Birthday Celebration GIF" style="display:block; margin:1.5rem auto; border-radius:16px; box-shadow:0 4px 16px rgba(255,183,94,0.15); width:100%; max-width:320px;">
+
+        <p class="wish-message" style="color:#ff7f50; font-size:1.1rem; margin:1.5rem 0; text-align:center;">
+            Wishing you a birthday filled with joy, laughter, and unforgettable memories! 🎂🎉
+        </p>
+        
+        <div class="countdown-container" style="margin:1rem 0; text-align:center;">
+            <div id="countdown-timer" style="display:flex; justify-content:center; gap:1rem;">
+                <div class="time-box" style="background:#fff3cd; color:#ff7f50; border-radius:12px; padding:0.5rem 1rem; font-weight:bold; font-size:1rem; box-shadow:0 2px 8px rgba(255,183,94,0.1);"><span id="days">0</span>Days</div>
+                <div class="time-box" style="background:#fff3cd; color:#ff7f50; border-radius:12px; padding:0.5rem 1rem; font-weight:bold; font-size:1rem; box-shadow:0 2px 8px rgba(255,183,94,0.1);"><span id="hours">0</span>Hours</div>
+                <div class="time-box" style="background:#fff3cd; color:#ff7f50; border-radius:12px; padding:0.5rem 1rem; font-weight:bold; font-size:1rem; box-shadow:0 2px 8px rgba(255,183,94,0.1);"><span id="minutes">0</span>Minutes</div>
+                <div class="time-box" style="background:#fff3cd; color:#ff7f50; border-radius:12px; padding:0.5rem 1rem; font-weight:bold; font-size:1rem; box-shadow:0 2px 8px rgba(255,183,94,0.1);"><span id="seconds">0</span>Seconds</div>
+            </div>
+        </div>
+
+        <button id="surprise-button" style="background:linear-gradient(90deg,#ffb347 0%,#ff7f50 100%); color:#fff; border:none; border-radius:24px; padding:0.75rem 2rem; font-size:1.1rem; font-weight:bold; cursor:pointer; margin-top:1.5rem; box-shadow:0 2px 8px rgba(255,183,94,0.15); transition:background 0.3s;">
+            Open Your Best Birthday Wish 🎁
+        </button>
+    </div>
+
+    <script>
+        // Surprise button
+        document.getElementById('surprise-button').addEventListener('click', function() {
+            window.open('gallery.html', '_blank');
+        });
+
+        // Countdown timer
+        const countdown = () => {
+            const birthdayDate = new Date('2025-08-27T00:00:00').getTime();
+            const now = new Date().getTime();
+            const difference = birthdayDate - now;
+
+            const seconds = 1000, minutes = seconds * 60, hours = minutes * 60, days = hours * 24;
+            let timeDays = Math.floor(difference / days);
+            let timeHours = Math.floor((difference % days) / hours);
+            let timeMinutes = Math.floor((difference % hours) / minutes);
+            let timeSeconds = Math.floor((difference % minutes) / seconds);
+
+            timeHours = timeHours < 10 ? '0' + timeHours : timeHours;
+            timeMinutes = timeMinutes < 10 ? '0' + timeMinutes : timeMinutes;
+            timeSeconds = timeSeconds < 10 ? '0' + timeSeconds : timeSeconds;
+
+            document.getElementById('days').innerText = timeDays;
+            document.getElementById('hours').innerText = timeHours;
+            document.getElementById('minutes').innerText = timeMinutes;
+            document.getElementById('seconds').innerText = timeSeconds;
+
+            if (difference < 0) {
+                clearInterval(interval);
+                document.getElementById('countdown-timer').innerHTML = "<h2 class='birthday-today'>Happy Birthday! 🎉</h2>";
+            }
+        };
+        const interval = setInterval(countdown, 1000);
+
+        // Play birthday song on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('birthday-audio');
+            audio.volume = 1.0;
+            audio.muted = false;
+            // Try to play automatically (may require user interaction in some browsers)
+            audio.play().catch(() => {
+                // If autoplay is blocked, play on first user interaction
+                const playAudio = () => {
+                    audio.play();
+                    window.removeEventListener('click', playAudio);
+                    window.removeEventListener('touchstart', playAudio);
+                };
+                window.addEventListener('click', playAudio);
+                window.addEventListener('touchstart', playAudio);
+            });
+        });
+
+        // Birthday Rain (balloons, confetti, cakes)
+        const rainContainer = document.querySelector('.birthday-rain');
+        function createFallingItem() {
+            const item = document.createElement('div');
+            item.classList.add('birthday');
+            item.style.left = Math.random() * 100 + 'vw';
+            item.style.animationDuration = Math.random() * 3 + 5 + 's';
+            
+            // Removed all emojis from the items array
+            const items = [];
+            item.innerText = items[Math.floor(Math.random() * items.length)] || '';
+            rainContainer.appendChild(item);
+
+            setTimeout(() => { item.remove(); }, 8000);
+        }
+        setInterval(createFallingItem, 300);
+
+        // Balloon flying animation with touch/click burst
+        function createFlyingBalloon() {
+            const balloon = document.createElement('div');
+            balloon.classList.add('flying-balloon');
+            // Random horizontal position
+            balloon.style.left = Math.random() * 90 + 'vw';
+            // Random color
+            const colors = ['#ff7f50', '#ffb347', '#87ceeb', '#e066ff', '#ff69b4', '#90ee90'];
+            balloon.style.color = colors[Math.floor(Math.random() * colors.length)];
+            balloon.innerText = '🎈';
+            // Random size
+            const size = Math.random() * 1.2 + 1;
+            balloon.style.fontSize = size + 'rem';
+            document.body.appendChild(balloon);
+
+            // Burst effect on click or touch
+            function burstBalloon(e) {
+                balloon.innerText = '💥';
+                balloon.style.transition = 'transform 0.3s, opacity 0.3s';
+                balloon.style.transform = 'scale(1.5)';
+                balloon.style.opacity = '0';
+                setTimeout(() => {
+                    balloon.remove();
+                }, 300);
+                e.stopPropagation();
+            }
+            balloon.addEventListener('click', burstBalloon);
+            balloon.addEventListener('touchstart', burstBalloon);
+
+            // Remove balloon after animation if not burst
+            setTimeout(() => {
+                if (document.body.contains(balloon)) {
+                    balloon.remove();
+                }
+            }, 7000);
+        }
+        setInterval(createFlyingBalloon, 800);
+    </script>
+</body>
+</html>
