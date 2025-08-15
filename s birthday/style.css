@@ -1,0 +1,491 @@
+/* --- GOOGLE FONTS IMPORT (New Elegant Fonts) --- */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;500;600&display=swap');
+
+/* --- GENERAL STYLES (for index.html) --- */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    /* New, softer background gradient */
+    background: linear-gradient(135deg, #ffdde1 0%, #ee9ca7 100%);
+    overflow-x: hidden; 
+    padding: 40px 0;
+    padding-bottom: 60px; /* Add this line or increase if already present */
+    scroll-margin: 1000px;
+}
+
+/* Footer Created By Section */
+.footer-created-by {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    padding: 0.7rem 0;
+    font-family: 'Segoe UI', cursive, sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    z-index: 100;
+    box-shadow: 0 -2px 8px rgba(255, 183, 94, 0.15);
+    height: 48px;
+    background: linear-gradient(90deg, #ffb347 0%, #ff7f50 100%);
+}
+
+/* --- NEW FLOWER-THEMED CARD DESIGN --- */
+.card {
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    max-width: 480px;
+    margin: 20px;
+    position: relative; 
+    z-index: 10;
+    border: 1px solid #fff;
+    overflow: hidden; /* Important for corner elements */
+}
+
+/* New Flower Graphics on the corners */
+.flower-corner {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    opacity: 0.5;
+}
+.top-left {
+    top: -30px;
+    left: -30px;
+    background-image: url('https://i.ibb.co/b3vTQbL/flower-corner.png');
+}
+.bottom-right {
+    bottom: -30px;
+    right: -30px;
+    background-image: url('https://i.ibb.co/b3vTQbL/flower-corner.png');
+    transform: rotate(180deg);
+}
+
+/* New Typography Styles */
+.heading {
+    margin-bottom: 20px;
+}
+.main-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4em;
+    color: #d17b88;
+    display: block;
+    line-height: 1;
+}
+.friend-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.8em;
+    color: #444;
+    display: block;
+    margin-top: 5px;
+}
+
+.card .main-gif {
+    width: 100%;
+    border-radius: 10px;
+    margin: 0 0 20px 0;
+}
+.wish-message {
+    color: #d72660;
+    font-size: 1.1rem;
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+/* Redesigned Button */
+#surprise-button {
+    background: linear-gradient(90deg, #ff6f91 0%, #ffdde1 100%);
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    box-shadow: 0 2px 8px rgba(255, 105, 135, 0.15);
+    transition: background 0.3s;
+}
+#surprise-button:hover {
+    background: linear-gradient(90deg, #ffdde1 0%, #ff6f91 100%);
+    color: #d72660;
+}
+
+/* Redesigned Countdown Timer */
+.countdown-container {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px dashed #e0e0e0;
+}
+#countdown-timer {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+.time-box {
+    display: flex;
+    flex-direction: column;
+    color: #888;
+    font-weight: 500;
+    font-size: 0.9em;
+}
+.time-box span {
+    font-size: 2.2em;
+    font-weight: 600;
+    color: #d17b88;
+}
+.birthday-today { /* Style for the final "Happy Birthday" message */
+    font-family: 'Montserrat', sans-serif;
+    color: #d17b88;
+}
+
+
+/* --- FLOWER RAIN ANIMATION STYLES --- */
+.flower-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+.flower {
+    position: absolute;
+    top: -10%;
+    font-size: 1.5rem;
+    user-select: none;
+    animation: fall linear;
+}
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0.5; }
+}
+
+/* Love Theme Styles */
+.love-theme {
+    border: 3px solid #ff6f91;
+    background: #fff0f6;
+    box-shadow: 0 8px 32px 0 rgba(255, 105, 135, 0.2);
+}
+
+.heart-corner {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: transparent;
+}
+.heart-corner.top-left::before,
+.heart-corner.bottom-right::before {
+    content: "💖";
+    font-size: 60px;
+    position: absolute;
+}
+.heart-corner.top-left {
+    top: -30px;
+    left: -30px;
+}
+.heart-corner.top-left::before {
+    top: 0;
+    left: 0;
+}
+.heart-corner.bottom-right {
+    bottom: -30px;
+    right: -30px;
+}
+.heart-corner.bottom-right::before {
+    bottom: 0;
+    right: 0;
+}
+
+.love-rain {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+.love {
+    position: absolute;
+    top: -40px;
+    font-size: 2rem;
+    animation: fallLove 8s linear forwards;
+    user-select: none;
+}
+@keyframes fallLove {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0.7;
+    }
+}
+
+.card.love-theme {
+    position: relative;
+    z-index: 2;
+    border-radius: 24px;
+    padding: 2rem;
+    margin: 3rem auto;
+    max-width: 400px;
+    background: #fff0f6;
+    box-shadow: 0 8px 32px 0 rgba(255, 105, 135, 0.2);
+}
+
+.heading .main-title {
+    color: #ff6f91;
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+.heading .friend-name {
+    color: #d72660;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
+
+/* Birthday Theme Styles */
+
+body {
+    background: linear-gradient(135deg, #ffe29f 0%, #ffa99f 100%);
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.birthday-theme {
+    border: 4px solid #ffb347;
+    background: #fffbe7;
+    box-shadow: 0 8px 32px 0 rgba(255, 183, 94, 0.2);
+    border-radius: 24px;
+    padding: 2rem;
+    margin: 3rem auto;
+    max-width: 420px;
+    position: relative;
+    z-index: 2;
+}
+
+.balloon-corner {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: transparent;
+    z-index: 3;
+}
+.balloon-corner.top-left::before,
+.balloon-corner.bottom-right::before {
+    content: "🎈";
+    font-size: 60px;
+    position: absolute;
+}
+.balloon-corner.top-left {
+    top: -30px;
+    left: -30px;
+}
+.balloon-corner.top-left::before {
+    top: 0;
+    left: 0;
+}
+.balloon-corner.bottom-right {
+    bottom: -30px;
+    right: -30px;
+}
+.balloon-corner.bottom-right::before {
+    bottom: 0;
+    right: 0;
+}
+
+.heading .main-title {
+    color: #ff7f50;
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+.heading .friend-name {
+    color: #ffb347;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
+
+.main-gif {
+    display: block;
+    margin: 1.5rem auto;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(255, 183, 94, 0.15);
+    width: 100%;
+    max-width: 320px;
+}
+
+.wish-message {
+    color: #ff7f50;
+    font-size: 1.1rem;
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.countdown-container {
+    margin: 1rem 0;
+    text-align: center;
+}
+#countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+.time-box {
+    background: #fff3cd;
+    color: #ff7f50;
+    border-radius: 12px;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(255, 183, 94, 0.1);
+}
+
+#surprise-button {
+    background: linear-gradient(90deg, #ffb347 0%, #ff7f50 100%);
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    box-shadow: 0 2px 8px rgba(255, 183, 94, 0.15);
+    transition: background 0.3s;
+}
+#surprise-button:hover {
+    background: linear-gradient(90deg, #ff7f50 0%, #ffb347 100%);
+    color: #fffbe7;
+}
+
+.birthday-rain {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+.birthday {
+    position: absolute;
+    top: -40px;
+    font-size: 2rem;
+    animation: fallBirthday 8s linear forwards;
+    user-select: none;
+}
+@keyframes fallBirthday {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0.7;
+    }
+}
+
+/* Experience Form Styles */
+.experience-form-container {
+    background: #fffbe7;
+    border: 2px solid #ffb347;
+    border-radius: 18px;
+    max-width: 420px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    box-shadow: 0 4px 16px rgba(255, 183, 94, 0.08);
+    text-align: center;
+}
+.experience-form-container h2 {
+    color: #ff7f50;
+    margin-bottom: 1rem;
+}
+#experience-form label {
+    display: block;
+    margin: 0.5rem 0 0.2rem 0;
+    color: #ffb347;
+    font-weight: 600;
+}
+#experience-form textarea,
+#experience-form input[type="tel"] {
+    width: 90%;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #ffb347;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    resize: vertical;
+}
+#experience-form button[type="submit"] {
+    background: #ffb347;
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+#experience-form button[type="submit"]:hover {
+    background: #ff7f50;
+}
+#form-message {
+    color: #ff7f50;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .card.birthday-theme,
+    .experience-form-container {
+        max-width: 98vw;
+        padding: 1rem;
+    }
+    .main-gif {
+        max-width: 95vw;
+    }
+
+}
+
+footer {
+    font-size: 1rem;
+    padding: 1rem 0;
+}
+
+/* New Balloon Animation Styles */
+.flying-balloon {
+    position: fixed;
+    bottom: -60px;
+    z-index: 10;
+    animation: flyBalloon 7s linear forwards;
+    pointer-events: none;
+    user-select: none;
+    transition: filter 0.2s;
+}
+
+@keyframes flyBalloon {
+    from {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-110vh) scale(1.2);
+        opacity: 0.7;
+    }
+}

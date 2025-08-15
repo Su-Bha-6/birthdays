@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Memories</title>
+    <!-- Link to the new, dedicated stylesheet for the gallery -->
+    <link rel="stylesheet" href="gallery.css">
+</head>
+<body class="gallery-body">
+
+    <!-- Flower Rain Animation Container -->
+    <div class="flower-rain"></div>
+
+    <!-- The Main Gallery Container -->
+    <div class="gallery-container">
+        <div class="gallery-header">
+            <h1>A Walk Down Memory Lane</h1>
+            <p>Wishing you a day filled with love, laughter, and so much joy. You deserve everything the world has to offer! Happy Birthday!</p>
+        </div>
+
+        <!-- New Themed Headers -->
+
+
+        
+        <!-- The Quotes Section -->
+        <div class="quotes-wrapper">
+            <div class="themed-headers" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-bottom: 2.5rem;">
+            <div class="theme-header sweet-header" style="background: #fffbe7; border-radius: 12px; padding: 1rem 2rem; box-shadow: 0 2px 8px rgba(255,183,94,0.10); border-top: 4px solid #ffb347; border-bottom: 2px dashed #ff7f50; font-family: 'Lora', serif; color: #ff7f50; font-size: 1.4rem;">
+                Sweet 🍬
+            </div>
+            
+            <div class="quote-card">
+                <p>"Happy birthday, bestie! You're the greatest"</p>
+            </div>
+            <div class="quote-card">
+                <p>"Here's to another year of life as my best friend!"</p>
+            </div>
+            <div class="quote-card">
+                <p>"Happy birthday to my person."</p>
+            </div>
+            <div class="quote-card">
+                <p>"Cheers to more fun, more memories, and more cake!."</p>
+            </div>
+            <div class="quote-card">
+                <p>"Happy birthday to my favorite secret keeper!"</p>
+            </div>
+             <div class="theme-header heartfelt-header" style="background: #fff0f6; border-radius: 12px; padding: 1rem 2rem; box-shadow: 0 2px 8px rgba(255,105,135,0.10); border-top: 4px solid #ff6f91; border-bottom: 2px dashed #d72660; font-family: 'Lora', serif; color: #d72660; font-size: 1.4rem;">
+                Heartfelt 💖
+            </div>
+            <div class="quote-card">
+                <p>"Wishing you a day filled with love, laughter, and so much joy. You deserve everything the world has to offer! Happy Birthday!"</p>
+            </div>
+            <div class="quote-card">
+                <p>"Thank you for being such a great friend. May your birthday be as amazing as you!"</p>
+            </div>
+            <div class="quote-card">
+                <p>"Happy Birthday dear friend, I am forever grateful for you. Have a fantastic birthday!"</p>
+            </div>
+            <div class="quote-card">
+                <p>"Happy birthday to my dearest friend! Thank you for being such an amazing person." </p>
+            </div>
+            <div class="quote-card">
+                <p>"May your special day be filled with love, laughter, and all the things that make you happy." </p>
+            </div>
+             <div class="theme-header fun-header" style="background: #e0f7fa; border-radius: 12px; padding: 1rem 2rem; box-shadow: 0 2px 8px rgba(33,150,243,0.10); border-top: 4px solid #4dd0e1; border-bottom: 2px dashed #00796b; font-family: 'Lora', serif; color: #00796b; font-size: 1.4rem;">
+                Fun & Playful 🎉
+            </div>
+        </div>
+        <div class="quote-card">
+                <p>"You're the best partner in crime. Happy birthday!"</p>
+            </div>
+            <div class="quote-card">
+                <p>"Happy birthday to someone as weird as I am."</p>
+            </div>
+
+            <div class="quote-card">
+                <p>"Happy birthday to my forever young bestie."</p>
+            </div>
+            <div class="quote-card">
+                <p>"May your day be as fabulous as you are!"</p>
+            </div>
+             <div class="quote-card">
+                <p>"Let's live it up, you deserve it!" </p>
+            </div>
+        </div>
+
+        <!-- Decorative Separator -->
+        <hr class="separator">
+
+        <!-- The Masonry Photo Grid -->
+        <div class="masonry-grid">
+            <!-- Sweet Photos -->
+            <div class="photos-section" id="sweet-photos">
+                <h2 class="photos-header" style="color:#ffb347; text-align:center; font-family:'Lora',serif; margin:1.5rem 0 1rem 0;">Sweet Moments 🍬</h2>
+                <div class="photo-item"><img src="1755270767806.jpg" alt="Sweet Memory 1"></div>
+                <div class="photo-item"><img src="1755268984430.jpg" alt="Sweet Memory 2"></div>
+            </div>
+            <!-- Heartfelt Photos -->
+            <div class="photos-section" id="heartfelt-photos">
+                <h2 class="photos-header" style="color:#d72660; text-align:center; font-family:'Lora',serif; margin:1.5rem 0 1rem 0;">Heartfelt Memories 💖</h2>
+                <div class="photo-item"><img src="1755269168322.jpg" alt="Heartfelt Memory 1"></div>
+                <div class="photo-item"><img src="1755269360795.jpg" alt="Heartfelt Memory 2"></div>
+            </div>
+            <!-- Fun & Playful Photos -->
+            <div class="photos-section" id="fun-photos">
+                <h2 class="photos-header" style="color:#00796b; text-align:center; font-family:'Lora',serif; margin:1.5rem 0 1rem 0;">Fun & Playful 🎉</h2>
+                <div class="photo-item"><img src="1755269573541.jpg" alt="Fun Memory 1"></div>
+                <div class="photo-item"><img src="1755269818071.jpg" alt="Fun Memory 2"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Lightbox Feature -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <a class="lightbox-prev">&#10094;</a>
+        <a class="lightbox-next">&#10095;</a>
+    </div>
+
+    <!-- JavaScript for the Lightbox (This script does not need to be changed) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const photoItems = document.querySelectorAll('.photo-item img');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const closeBtn = document.querySelector('.lightbox-close');
+            const prevBtn = document.querySelector('.lightbox-prev');
+            const nextBtn = document.querySelector('.lightbox-next');
+            let currentIndex;
+
+            const showLightbox = (index) => {
+                currentIndex = index;
+                lightboxImg.src = photoItems[currentIndex].src;
+                lightbox.style.display = 'flex';
+            };
+            const hideLightbox = () => {
+                lightbox.style.display = 'none';
+            };
+            const showNext = () => {
+                currentIndex = (currentIndex + 1) % photoItems.length;
+                lightboxImg.src = photoItems[currentIndex].src;
+            };
+            const showPrev = () => {
+                currentIndex = (currentIndex - 1 + photoItems.length) % photoItems.length;
+                lightboxImg.src = photoItems[currentIndex].src;
+            };
+            photoItems.forEach((img, index) => {
+                img.addEventListener('click', () => showLightbox(index));
+            });
+            closeBtn.addEventListener('click', hideLightbox);
+            nextBtn.addEventListener('click', showNext);
+            prevBtn.addEventListener('click', showPrev);
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) hideLightbox();
+            });
+        });
+
+        // Flower Rain Animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const flowerRain = document.querySelector('.flower-rain');
+            const flowers = ['🌸', '🌺', '🌻', '🌼', '💐', '🥀'];
+            function createFlower() {
+                const flower = document.createElement('span');
+                flower.className = 'flower';
+                flower.innerText = flowers[Math.floor(Math.random() * flowers.length)];
+                flower.style.left = Math.random() * 100 + 'vw';
+                flower.style.fontSize = (Math.random() * 1.5 + 1.2) + 'rem';
+                flowerRain.appendChild(flower);
+
+                setTimeout(() => {
+                    flower.remove();
+                }, 7000);
+            }
+            setInterval(createFlower, 400);
+        });
+    </script>
+    <footer class="footer-created-by">
+        Created by Suvo
+    </footer>
+</body>
+</html>

@@ -1,0 +1,274 @@
+/* --- GOOGLE FONTS IMPORT (For gallery.html) --- */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,400;1,500&family=Montserrat:wght@400;500&display=swap');
+
+/* --- BIRTHDAY THEME ADDITIONS --- */
+body.gallery-body {
+    display: block;
+    background: linear-gradient(135deg, #ffe29f 0%, #ffa99f 100%);
+    background-image: url("https://www.transparenttextures.com/patterns/subtle-white-feathers.png");
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    overflow-y: auto;
+    position: relative;
+    padding-bottom: 60px; /* Prevents content from being hidden behind the footer */
+}
+
+/* Add festive confetti and balloon decorations */
+.birthday-decor {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 10;
+}
+.birthday-confetti {
+    position: absolute;
+    font-size: 2rem;
+    animation: fallConfetti 6s linear infinite;
+    opacity: 0.8;
+}
+@keyframes fallConfetti {
+    0% { transform: translateY(-10vh) rotate(0deg);}
+    100% { transform: translateY(110vh) rotate(360deg);}
+}
+
+/* --- STYLES FOR THE NEW gallery.html DESIGN --- */
+.gallery-container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 50px auto 80px auto; /* Add bottom margin for footer */
+    background: rgba(255,255,255,0.95);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px 0 rgba(255, 183, 94, 0.15);
+    padding: 2rem 1rem;
+}
+.gallery-header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+.gallery-header h1 {
+    font-family: 'Lora', serif;
+    font-size: 3.5em;
+    color: #ff7f50;
+    margin: 0;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px #fffbe7;
+}
+.gallery-header p {
+    font-family: 'Lora', serif;
+    font-size: 1.3em;
+    font-style: italic;
+    color: #ffb347;
+    margin-top: 5px;
+}
+
+/* Add a birthday cake emoji and balloons to the header */
+.gallery-header::before {
+    content: "🎂🎈";
+    display: block;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.5rem;
+}
+.gallery-header::after {
+    content: "🎉";
+    display: block;
+    font-size: 2rem;
+    margin-top: 0.5rem;
+}
+
+/* Quotes Section Styles */
+.quotes-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin: 40px 0;
+}
+.quote-card {
+    background: #fffbe7;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(255,183,94,0.10);
+    border-top: 4px solid #ffb347;
+    border-bottom: 2px dashed #ff7f50;
+    position: relative;
+}
+.quote-card::before {
+    content: "🎈";
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+.quote-card p {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 1.2em;
+    color: #ff7f50;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Decorative Separator */
+.separator {
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, #ffb347, #fffbe7, #ff7f50);
+    margin: 50px 0;
+    border-radius: 2px;
+}
+
+/* Masonry Grid Layout */
+.masonry-grid {
+    column-count: 3;
+    column-gap: 20px;
+}
+.photo-item {
+    margin-bottom: 20px;
+    border-radius: 14px;
+    overflow: hidden;
+    break-inside: avoid;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255,183,94,0.13);
+    border: 2px solid #ffb347;
+    background: #fffbe7;
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+.photo-item:hover {
+    box-shadow: 0 8px 24px rgba(255, 183, 94, 0.25);
+    border-color: #ff7f50;
+}
+.photo-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+    border-radius: 12px;
+}
+.photo-item:hover img {
+    transform: scale(1.05) rotate(-2deg);
+}
+
+/* Lightbox Styles */
+.lightbox {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.lightbox-content {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 50px rgba(255,183,94,0.3);
+    border: 4px solid #ffb347;
+    background: #fffbe7;
+}
+.lightbox-close {
+    position: absolute;
+    top: 20px; right: 35px;
+    font-size: 40px;
+    color: #ff7f50;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+.lightbox-close:hover { color: #ffb347; }
+.lightbox-prev, .lightbox-next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 16px;
+    color: #ff7f50;
+    font-weight: bold;
+    font-size: 30px;
+    transition: background-color 0.2s ease;
+    user-select: none;
+}
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+.lightbox-prev:hover, .lightbox-next:hover {
+    background-color: rgba(255, 183, 94, 0.15);
+}
+
+/* Footer Styles */
+.footer-created-by {
+    position: ;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+   
+    color: #0e0303;
+    text-align: center;
+    padding: 0.7rem 0;
+    font-family: 'Segoe UI', cursive, sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    z-index: 100;
+    height: 48px;
+}
+
+/* Flower Rain Animation */
+.flower-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 20;
+}
+.flower {
+    position: absolute;
+    top: -40px;
+    user-select: none;
+    animation: fallFlower 7s linear forwards;
+    opacity: 0.85;
+    will-change: transform;
+}
+@keyframes fallFlower {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0.7;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1000px) { .masonry-grid { column-count: 2; } }
+@media (max-width: 768px) {
+    .quotes-wrapper { grid-template-columns: 1fr; }
+    .gallery-header h1 { font-size: 2em; }
+}
+@media (max-width: 600px) {
+    .masonry-grid { column-count: 1; }
+    .gallery-header h1 { font-size: 1.5em; }
+    .gallery-container { padding: 1rem 0.2rem; }
+}
+
+/* --- OPTIONAL: Add animated confetti/balloons with JS for more festivity --- */
+<div class="birthday-decor"></div>
+<script>
+    // Simple confetti/balloon animation
+    const decor = document.querySelector('.birthday-decor');
+    const icons = ['🎈','🎉','🎂','🥳','🎁'];
+    for(let i=0;i<20;i++){
+        const el = document.createElement('span');
+        el.className = 'birthday-confetti';
+        el.innerText = icons[Math.floor(Math.random()*icons.length)];
+        el.style.left = Math.random()*100 + 'vw';
+        el.style.animationDelay = (Math.random()*6) + 's';
+        decor.appendChild(el);
+    }
+</script>
